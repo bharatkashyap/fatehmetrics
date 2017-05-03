@@ -1,0 +1,22 @@
+
+#title
+{
+	font-family: sans-serif;
+	margin-bottom: 30px;
+	margin-top: 100px;
+}
+
+.form-group input, .btn
+{
+	font-family: Lato;
+}
+
+.btn
+{
+	margin-top: 5%;
+}
+
+.text-muted
+{
+	font-size: 0.8em;
+}
