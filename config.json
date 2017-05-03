@@ -1,5 +1,5 @@
 {
-	"connectionString": "mongodb://localhost:27017/fateh-metrics",
+	"connectionString": "mongodb://bharatkashyap:pw12345@ds131041.mlab.com:31041/heroku_gcx0lcw2",
 	"secret" : "passkey",
 	"apiUrl" : "http://localhost:3000/api"
 }
