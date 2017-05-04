@@ -9,7 +9,7 @@ var User = require("models/user");
 mongoose.connect(config.database);
 
 // routes
-router.post('/authenticate', authenticateUser);
+router.post("/authenticate", authenticateUser);
 
 module.exports = router;
 
