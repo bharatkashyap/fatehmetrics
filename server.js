@@ -23,6 +23,7 @@ app.use(express.static(path.join(__dirname + "/public")));
 //Use bodyParser so we can use data from the POST request and/or URL params
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 app.use(session({ secret: config.secret, resave: false, saveUninitialized: false }));
 
 app.use(morgan("dev"));
