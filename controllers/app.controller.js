@@ -13,7 +13,7 @@ router.use("/", function (req, res, next) {
 // Make JWT token available to angular app
 router.get("/token", function (req, res) {
     res.send(req.session.token);
-}); /* ?????? */
+}); 
 
 // Serve angular app files from the '/app' route
 router.use("/", express.static("app"));
