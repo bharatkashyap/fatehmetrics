@@ -1,40 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
   <title>Metrics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <script src="https://use.fontawesome.com/64ef20be9f.js"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
   <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+
 </head>
-  <body>
+  <body ng-controller="main">
     <div class="container-fluid">
       <nav class="nav justify-content-center">
         <a class="nav-link active" href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>Stats</a>
         <a class="nav-link" href="#"><i class="fa fa-cogs" aria-hidden="true"></i>Settings</a>
         <a class="nav-link" href="/login" target="_self"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
       </nav>
+      <br/>
+      <h6>Signed in user : {{user.username}} </h6>
 
       <div class="row justify-content-center main">
         <div class="col-sm-3">
           <div class="card">
             <div class="card-block">
-              <h3 class="card-title">783</h3>
+              <h3 class="card-title">{{data[data.length - 1].rpm}}</h3>
               <h6 class="card-subtitle mb-2 text-muted">Revs per minute</h6>
-              <p class="card-text">11:53PM 5 May 2017</p>
+              <p class="card-text">{{time}}</p>
             </div>
           </div>
         </div>
         <div class="col-sm-3">
           <div class="card">
             <div class="card-block">
-              <h3 class="card-title">14.7</h3>
-              <h6 class="card-subtitle mb-2 text-muted">Air fuel ratio</h6>
-              <p class="card-text">9:43PM 5 May 2017</p>
+              <h3 class="card-title">{{data[data.length - 1].volt}} </h3>
+              <h6 class="card-subtitle mb-2 text-muted">Voltage</h6>
+              <p class="card-text">{{time}}</p>
             </div>
           </div>
         </div>
@@ -42,7 +46,7 @@
 
       <div class="row justify-content-center graph">
         <div class="col-sm-4">
-          <div class="ct-chart ct-major-eleventh" id="chart1"></div>
+          <div ng-chartist data='data' class="ct-chart ct-major-eleventh" id="chart1"></div>
           <div class="ct-chart ct-golden-section" id="chart2"></div>
         </div>
       </div>
@@ -58,10 +62,10 @@
    <script type="text/javascript">
    var data = {
 // A labels array that can contain any sort of values
-      labels: ['1 May', '2 May', '3 May', '4 May', '5 May'],
+      labels: ['50', '40', '30', '20', '10'],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        [13.2, 14.8, 13.2, 11.2, 14.7]
+        [11.7, 11.9, 11.7, 11.8, 11.7]
         ]
         };
 
@@ -72,9 +76,13 @@
       var chart = new Chartist.Line('#chart1', data);
 
       new Chartist.Bar('#chart2', {
-   labels: ['1 May', '2 May', '3 May', '4 May', '5 May'],
-   series: [[732, 658, 678, 712, 783]]
+   labels: ['50', '40', '30', '20', '10'],
+   series: [[683, 682, 682, 681, 680]]
     });
 
    </script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+   <script type="text/javascript" src="app.ngcontroller.js"></script>
+   <script type="text/javascript" src="user.ngservice.js"></script>
+
   </html>

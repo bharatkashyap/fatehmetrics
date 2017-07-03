@@ -4,6 +4,7 @@ require("rootpath")();
 var path = require("path");
 var express = require("express");
 var app = express();
+
 var session = require("express-session");
 var bodyParser = require("body-parser");
 var config = require("config.json");
@@ -23,18 +24,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Create session using express-session
+
 app.use(session({ secret: config.secret, resave: false, saveUninitialized: false}));
 
 //Log requests to console using morgan
 app.use(morgan("dev"));
 
 // Use JWT auth to secure the api
-app.use("/api", jwt({ secret: config.secret }).unless({ path: ["/api/users/authenticate"] }));
+app.use("/api", jwt({ secret: config.secret }).unless({ path: ["/api/users/authenticate", "/api/users/current", "/api/data/get", "/api/data/read"] }));
 
 // Routes
 app.use("/login", require("controllers/login.controller"));
 app.use("/app", require("controllers/app.controller"));
 app.use("/api/users", require("controllers/users.controller"));
+app.use("/api/data", require("controllers/data.controller"));
+
 
 
 

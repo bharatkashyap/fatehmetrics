@@ -10,6 +10,8 @@ mongoose.connect(config.database);
 
 // routes
 router.post("/authenticate", authenticateUser);
+router.get("/current", getCurrentUser);
+
 
 module.exports = router;
 
@@ -42,10 +44,24 @@ function authenticateUser(req, res)
           // return the information including token as JSON
           res.json({
             success: true,
-            message: 'Successfully logged in!',
+            message: "Successfully logged in!",
+            id: user._id,
             token: token
             });
         }
       }
     });
   }
+
+  function getCurrentUser(req, res)
+    {
+      User.findById(req.session.uid, function(err, user)
+      {
+        if (err) throw err;
+
+        if (user)
+        {
+          res.send(user);
+        }
+      })
+    }

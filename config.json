@@ -1,6 +1,6 @@
 {
 	"database": "mongodb://bharatkashyap:pw12345@ds131041.mlab.com:31041/heroku_gcx0lcw2",
 	"secret" : "passkey",
-	"apiUrl" : "https://fatehmetrics.herokuapp.com/api",
-	"localUrl" : "http://localhost:8000/api"
+	"globalUrl" : "https://fatehmetrics.herokuapp.com/api",
+	"apiUrl" : "http://localhost:8000/api"
 }

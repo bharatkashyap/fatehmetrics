@@ -5,6 +5,5 @@ var Schema = mongoose.Schema;
 
 module.exports = mongoose.model("Data", new Schema({
     rpm: Number,
-    volt: Number,
-    limit: Boolean
+    volt: Number
 }));
