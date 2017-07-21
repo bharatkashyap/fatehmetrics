@@ -37,7 +37,7 @@
           <div class="card">
             <div class="card-block">
               <h3 class="card-title">{{data[data.length - 1].volt}} </h3>
-              <h6 class="card-subtitle mb-2 text-muted">Voltage</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Wheel Speed</h6>
               <p class="card-text">{{time}}</p>
             </div>
           </div>
@@ -62,10 +62,10 @@
    <script type="text/javascript">
    var data = {
 // A labels array that can contain any sort of values
-      labels: ['50', '40', '30', '20', '10'],
+      labels: ['1', '2', '3', '4', '5'],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        [11.7, 11.9, 11.7, 11.8, 11.7]
+        [31, 37, 41, 45, 51]
         ]
         };
 
@@ -76,8 +76,8 @@
       var chart = new Chartist.Line('#chart1', data);
 
       new Chartist.Bar('#chart2', {
-   labels: ['50', '40', '30', '20', '10'],
-   series: [[683, 682, 682, 681, 680]]
+   labels: ['1', '2', '3', '4', '5'],
+   series: [[5003, 6877, 7342, 8006, 9040]]
     });
 
    </script>
