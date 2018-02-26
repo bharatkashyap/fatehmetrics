@@ -18,5 +18,8 @@
     "q": "^1.4.1",
     "request": "^2.58.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start" : "node server.js"
+  }
 }
