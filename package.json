@@ -18,6 +18,10 @@
     "q": "^1.4.1",
     "request": "^2.58.0"
   },
+  "engines": {
+    "node": "8.5.0",
+    "npm": "4.2.0"
+  },
   "license": "MIT",
   "scripts": {
     "start" : "node server.js"
